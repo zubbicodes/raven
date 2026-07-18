@@ -1,8 +1,8 @@
 {
  "action": "Update Settings",
- "action_label": "Add Users to Raven",
+ "action_label": "Add Users to FlowConnect",
  "creation": "2023-12-08 06:59:16.143823",
- "description": "## Adding Users\n\nTo access Raven, users need to have the **Raven User** role.\n\nGo to the \"Users\" list and add the role to the users you want on Raven.",
+ "description": "## Adding Users\n\nUsers need FlowConnect access before they can join conversations.\n\nOpen the Users list and grant access to the people you want in FlowConnect.",
  "docstatus": 0,
  "doctype": "Onboarding Step",
  "idx": 3,

@@ -26,12 +26,12 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Raven Bot",
+   "label": "FlowConnect Bot",
    "options": "Raven Bot"
   },
   {
    "default": "0",
-   "description": "If checked, this prompt will be available to all users on Raven",
+   "description": "If checked, this prompt will be available to all FlowConnect users",
    "fieldname": "is_global",
    "fieldtype": "Check",
    "in_list_view": 1,

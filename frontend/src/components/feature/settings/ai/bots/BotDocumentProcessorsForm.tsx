@@ -76,7 +76,7 @@ export const BotDocumentProcessorsForm = () => {
                         <BiInfoCircle />
                     </Callout.Icon>
                     <Callout.Text>
-                        Document Processors require Google Cloud APIs to be enabled in your Raven settings.
+                        Document Processors require Google Cloud APIs to be enabled in your FlowConnect settings.
                     </Callout.Text>
                 </Callout.Root>
             </Stack>
@@ -104,7 +104,7 @@ export const BotDocumentProcessorsForm = () => {
                     </HStack>
                 </Text>
                 <HelperText>
-                    When images or PDFs are uploaded to the agent, Raven will automatically call Google Cloud APIs
+                    When images or PDFs are uploaded to the agent, FlowConnect will automatically call Google Cloud APIs
                     to process the document and send its results to the agent for better context.
                 </HelperText>
             </Stack>

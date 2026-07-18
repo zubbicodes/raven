@@ -45,14 +45,14 @@ const RavenUsersAlert = () => {
                 </Box>
                 <Flex direction='column' align='center' gap='2'>
                     <Heading as='h2' className='not-cal' size='4'>
-                        You do not have access to <Text className='cal-sans'>Raven</Text>.
+                        You do not have access to <Text className='cal-sans'>FlowConnect</Text>.
                     </Heading>
                     <Text as='p' size='2' align='center' className='leading-6'>
-                        Please contact your Administrator or System Manager to give you the <Strong>"Raven User"</Strong> role.
+                        Please contact your Administrator or System Manager to give you FlowConnect access.
                     </Text>
                     <Flex gap='3' direction='column' py='1' pt='3'>
                         <Button asChild>
-                            <Link className='text-white' href={'/app/raven-user'}>View Raven Users</Link>
+                            <Link className='text-white' href={'/app/raven-user'}>View FlowConnect Users</Link>
                         </Button>
                         <Button variant='outline' onClick={() => window.location.reload()}>
                             Refresh Page
@@ -98,7 +98,7 @@ const AddRavenUsersCard = () => {
         call({
             users: JSON.stringify([...selected, currentUser])
         }).then(() => {
-            toast.success(`You have added ${selected.length} users to Raven`)
+            toast.success(`You have added ${selected.length} users to FlowConnect`)
             window.location.reload()
         })
     }
@@ -106,9 +106,9 @@ const AddRavenUsersCard = () => {
     return <Box className={clsx(BOX_STYLE, 'bg-accent-a2')}>
         <Card className={clsx(CARD_STYLE, 'max-w-xl min-w-[720px]')}>
             <Flex gap='2' direction='column'>
-                <Heading as='h1'>Add users to Raven</Heading>
+                <Heading as='h1'>Add users to FlowConnect</Heading>
                 <Text as='p' size='2' className='leading-6'>
-                    Users you add will be given the <Strong>"Raven User"</Strong> role.
+                    Users you add will be granted FlowConnect access.
                 </Text>
             </Flex>
 
@@ -170,7 +170,7 @@ const AddRavenUsersCard = () => {
                     </Flex>
                     <Button type='button' disabled={loading} onClick={handleAddUsers}>
                         {loading && <Loader />}
-                        {loading ? "Adding" : "Add to Raven"}
+                        {loading ? "Adding" : "Add to FlowConnect"}
                     </Button>
                 </Flex>
             </Box>

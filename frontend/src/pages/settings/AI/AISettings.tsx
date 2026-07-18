@@ -76,7 +76,7 @@ const AISettings = () => {
                     <SettingsContentContainer>
                         <SettingsPageHeader
                             title='AI Settings'
-                            description='Configure AI providers to use AI features in Raven.'
+                            description='Configure AI providers to use AI features in FlowConnect.'
                             actions={<Button type='submit' disabled={updatingDoc || !isRavenAdmin}>
                                 {updatingDoc && <Loader className="text-white" />}
                                 {updatingDoc ? "Saving" : "Save"}

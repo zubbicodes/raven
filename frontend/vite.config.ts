@@ -16,11 +16,11 @@ export default defineConfig(({ command, mode }) => {
 			injectRegister: null,
 			outDir: "../raven/public/raven",
 			manifest: {
-				name: "Raven",
+				name: "FlowConnect",
 				start_url: `/${env.VITE_BASE_NAME}`,
 				scope: `/${env.VITE_BASE_NAME}/`,
-				short_name: "Raven",
-				description: "Simple, work messaging tool.",
+				short_name: "FlowConnect",
+				description: "Secure team messaging by FLOW.",
 				display: "standalone",
 				"icons": [
 					{
@@ -70,6 +70,7 @@ export default defineConfig(({ command, mode }) => {
 			emptyOutDir: true,
 			target: "es2015",
 			rollupOptions: {
+				external: ["/assets/raven/flowconnect-brand.js"],
 				onwarn(warning, warn) {
 					if (warning.code === "MODULE_LEVEL_DIRECTIVE") {
 						return

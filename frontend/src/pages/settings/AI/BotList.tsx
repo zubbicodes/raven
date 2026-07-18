@@ -49,7 +49,7 @@ const BotList = (props: Props) => {
                         <BiBot />
                     </EmptyStateIcon>
                     <EmptyStateTitle>Get started with agents</EmptyStateTitle>
-                    <EmptyStateDescription>Create agents to run automations on Raven.<br />Send reminders, document notifications and run AI assistants.</EmptyStateDescription>
+                    <EmptyStateDescription>Create agents to run automations on FlowConnect.<br />Send reminders, document notifications and run AI assistants.</EmptyStateDescription>
                     {isRavenAdmin && <EmptyStateLinkAction to='create'>
                         Create your first agent
                     </EmptyStateLinkAction>}

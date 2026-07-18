@@ -80,8 +80,8 @@ const WorkspaceItem = ({ workspace }: { workspace: WorkspaceFields & { unread_co
 
     let logo = workspace.logo || ''
 
-    if (!logo && workspace.workspace_name === 'Raven') {
-        logo = '/assets/raven/raven-logo.png'
+    if (!logo && ['Raven', 'FlowConnect'].includes(workspace.workspace_name)) {
+        logo = '/assets/raven/flowconnect-logo.svg'
     }
 
     const location = useLocation()

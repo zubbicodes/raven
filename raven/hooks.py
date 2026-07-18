@@ -1,14 +1,16 @@
+import os
+
 from . import __version__ as app_version
 
 app_name = "raven"
-app_title = "Raven"
-app_publisher = "The Commit Company (Algocode Technologies Pvt. Ltd.)"
-app_description = "Messaging Application"
-app_email = "support@thecommit.company"
+app_title = "FlowConnect"
+app_publisher = "FLOW"
+app_description = "Team messaging and collaboration"
+app_email = os.environ.get("FLOW_SUPPORT_EMAIL", "support@flow.local")
 app_license = "AGPLv3"
-source_link = "https://github.com/The-Commit-Company/Raven"
-app_logo = "/assets/raven/raven-logo.png"
-app_logo_url = "/assets/raven/raven-logo.png"
+source_link = os.environ.get("RAVEN_GIT_URL", "https://github.com/syntaxusman/raven.git").removesuffix(".git")
+app_logo = "/assets/raven/flowconnect-logo.svg"
+app_logo_url = "/assets/raven/flowconnect-logo.svg"
 
 # Includes in <head>
 # ------------------
@@ -22,8 +24,8 @@ app_include_js = "raven.bundle.js"
 add_to_apps_screen = [
 	{
 		"name": "raven",
-		"logo": "/assets/raven/raven-logo.png",
-		"title": "Raven",
+		"logo": "/assets/raven/flowconnect-logo.svg",
+		"title": "FlowConnect",
 		"route": "/raven",
 		"has_permission": "raven.permissions.check_app_permission",
 	}
@@ -90,6 +92,7 @@ extend_bootinfo = "raven.boot.boot_session"
 
 # before_install = "raven.install.before_install"
 after_install = "raven.install.after_install"
+after_migrate = "raven.install.apply_flowconnect_branding"
 # after_sync = ""
 
 # Uninstallation

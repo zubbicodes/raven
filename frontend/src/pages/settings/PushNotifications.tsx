@@ -31,7 +31,7 @@ const PushNotifications = () => {
         disabled: !isRavenAdmin
     })
 
-    const { handleSubmit, control, watch, reset, register, formState: { errors }, setValue } = methods
+    const { handleSubmit, control, watch, reset, register, formState: { errors } } = methods
 
     useEffect(() => {
         if (ravenSettings) {
@@ -98,7 +98,7 @@ const PushNotifications = () => {
                             <br />
                             <ol className='list-decimal list-inside'>
                                 <li>
-                                    <Strong>Raven Cloud</Strong> - recommended for all users, including those on Frappe Cloud. For self-hosted instances, this is the only option.
+                                    <Strong>Managed Push Service</Strong> - recommended for hosted and self-managed installations.
                                 </li>
                                 <li>
                                     <Strong>Frappe Cloud</Strong> - alternative option available only for Frappe Cloud users.
@@ -114,9 +114,6 @@ const PushNotifications = () => {
                                 name='push_notification_service'
                                 rules={{
                                     required: "Please select a push notification service",
-                                    onChange: (e) => {
-                                        setValue('push_notification_server_url', 'https://cloud.ravenchat.ai')
-                                    }
                                 }}
                                 render={({ field }) => (
                                     <Select.Root
@@ -127,7 +124,7 @@ const PushNotifications = () => {
                                         <Select.Trigger className='w-full' />
                                         <Select.Content>
                                             <Select.Item value='Raven'>
-                                                {__("Raven Cloud")}
+                                                {__("Managed Push Service")}
                                             </Select.Item>
                                             <Select.Item value='Frappe Cloud'>
                                                 {__("Frappe Cloud")}
@@ -136,13 +133,13 @@ const PushNotifications = () => {
                                     </Select.Root>
                                 )}
                             />
-                            <HelperText>We recommend using Raven Cloud for push notifications.</HelperText>
+                            <HelperText>We recommend using the managed service for push notifications.</HelperText>
                         </Box>
 
                         {isRavenCloud ?
                             <Stack gap='3'>
                                 <Text size='2'>
-                                    To get started with Raven Cloud, you need to first <Link href="https://cloud.ravenchat.ai" target='_blank'>create an account <FiExternalLink /></Link> and get your API Key and API Secret.
+                                    Enter the managed push-service credentials supplied by your FLOW administrator.
                                 </Text>
                                 <Box>
                                     <Label htmlFor='push_notification_server_url' isRequired>Push Notification Server URL</Label>
@@ -153,7 +150,7 @@ const PushNotifications = () => {
                                         id='push_notification_server_url'
                                         autoComplete='off'
                                         required
-                                        placeholder='https://push.raven.chat'
+										placeholder='https://push.example.com'
                                         {...register('push_notification_server_url', {
                                             required: isRavenCloud ? "Please add your Push Notification Server URL" : false,
                                             maxLength: {
@@ -165,9 +162,7 @@ const PushNotifications = () => {
                                     />
                                     {errors?.push_notification_server_url && <ErrorText>{errors.push_notification_server_url?.message}</ErrorText>}
                                     <HelperText size='2'>
-                                        You can keep this as "https://cloud.ravenchat.ai" if you are using the default Raven Cloud instance.
-                                        <br />
-                                        Only change this if you are using a custom Raven Cloud instance.
+										Use the push-service URL supplied by your FLOW administrator.
                                     </HelperText>
                                 </Box>
 
@@ -247,9 +242,9 @@ const RegisterSiteButton = ({ mutate, ravenSettings }: { mutate: VoidFunction, r
 
     const registerSite = () => {
         toast.promise(call({}).then(() => mutate()), {
-            loading: 'Registering site on Raven Cloud...',
-            success: 'Site registered on Raven Cloud. You can now send push notifications.',
-            error: (error) => 'Failed to register site on Raven Cloud. ' + (getErrorMessage(error))
+            loading: 'Registering site with the managed push service...',
+            success: 'Site registered. You can now send push notifications.',
+            error: (error) => 'Failed to register the site. ' + (getErrorMessage(error))
         })
     }
 
@@ -258,7 +253,7 @@ const RegisterSiteButton = ({ mutate, ravenSettings }: { mutate: VoidFunction, r
         disabled={loading}
         variant='soft'
         type='button'
-        className='not-cal'>{ravenSettings.vapid_public_key ? "Re-Register Site on Raven Cloud" : "Register Site on Raven Cloud"}</Button>
+        className='not-cal'>{ravenSettings.vapid_public_key ? "Re-Register Site" : "Register Site"}</Button>
 
 }
 
@@ -267,9 +262,9 @@ const SyncDataButton = () => {
 
     const syncData = () => {
         toast.promise(call({}), {
-            loading: 'Syncing data to Raven Cloud...',
-            success: 'Data synced to Raven Cloud.',
-            error: (error) => 'Failed to sync data to Raven Cloud. ' + (getErrorMessage(error))
+            loading: 'Syncing push-service data...',
+            success: 'Push-service data synced.',
+            error: (error) => 'Failed to sync push-service data. ' + (getErrorMessage(error))
         })
     }
 
@@ -279,7 +274,7 @@ const SyncDataButton = () => {
         variant='soft'
         type='button'
         className='not-cal'>
-        {loading ? "Syncing Data to Raven Cloud..." : "Sync Data to Raven Cloud"}
+        {loading ? "Syncing Push Data..." : "Sync Push Data"}
     </Button>
 }
 

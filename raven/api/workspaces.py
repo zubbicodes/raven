@@ -11,7 +11,7 @@ def get_list():
 	Fetches list of all workspaces that the current user is a member of/has access to
 	"""
 	if not frappe.db.exists("Raven User", {"user": frappe.session.user}):
-		frappe.throw(_("You do not have access to Raven."), frappe.PermissionError)
+		frappe.throw(_("You do not have access to FlowConnect."), frappe.PermissionError)
 
 	workspace = frappe.qb.DocType("Raven Workspace")
 	workspace_member = frappe.qb.DocType("Raven Workspace Member")

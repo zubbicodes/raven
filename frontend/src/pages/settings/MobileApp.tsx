@@ -32,7 +32,7 @@ const MobileApp = () => {
             <SettingsContentContainer>
                 <SettingsPageHeader
                     title={__('Mobile App')}
-                    description={__("Do more with Raven on your mobile.")}
+                    description={__("Do more with FlowConnect on your mobile.")}
                 />
                 {!isRavenAdmin && <CustomCallout
                     iconChildren={<FiAlertTriangle />}
@@ -41,9 +41,9 @@ const MobileApp = () => {
                 </CustomCallout>}
                 <ErrorBanner error={error} />
 
-                <Text size='2'>Raven uses OAuth to authenticate users securely on the mobile app.
+                <Text size='2'>FlowConnect uses OAuth to authenticate users securely on the mobile app.
                     <br />
-                    To use the Raven mobile app, you need to first create an <Link href="https://docs.frappe.io/framework/user/en/using_frappe_as_oauth_service" target='_blank'>OAuth Client <FiExternalLink /></Link>.
+                    To use the FlowConnect mobile app, you need to first create an <Link href="https://docs.frappe.io/framework/user/en/using_frappe_as_oauth_service" target='_blank'>OAuth Client <FiExternalLink /></Link>.
                     <br />
                     <br />
                     <Text as='span' weight='medium'>This is a one-time single click setup.</Text> Click the button below to configure the OAuth Client.

@@ -5,19 +5,17 @@ from frappe.desk.page.setup_wizard.setup_wizard import add_all_roles_to, make_re
 
 def after_install():
 	try:
-		print("Setting up Raven...")
+		print("Setting up FlowConnect...")
 		add_all_roles_to("Administrator")
 		create_raven_user_for_administrator()
 		create_general_channel()
 
-		click.secho("Thank you for installing Raven!", fg="green")
+		click.secho("Thank you for installing FlowConnect!", fg="green")
 
 	except Exception as e:
-		BUG_REPORT_URL = "https://github.com/The-Commit-Company/Raven/issues/new"
 		click.secho(
-			"Installation for Raven failed due to an error."
-			" Please try re-installing the app or"
-			f" report the issue on {BUG_REPORT_URL} if not resolved.",
+			"Installation for FlowConnect failed due to an error."
+			" Please try re-installing the app or contact FLOW support if not resolved.",
 			fg="bright_red",
 		)
 		raise e
@@ -40,7 +38,7 @@ def create_general_channel():
 	default_workspace = frappe.get_doc(
 		{
 			"doctype": "Raven Workspace",
-			"workspace_name": "Raven",
+			"workspace_name": "FlowConnect",
 			"type": "Public",
 		}
 	)
@@ -72,3 +70,20 @@ def create_general_channel():
 	]
 
 	make_records(channel)
+
+
+def apply_flowconnect_branding():
+	"""Rename the upstream default workspace without changing Raven DocType names."""
+	if (
+		frappe.db.exists("DocType", "Raven Workspace")
+		and frappe.db.exists("Raven Workspace", "Raven")
+		and not frappe.db.exists("Raven Workspace", "FlowConnect")
+	):
+		frappe.rename_doc("Raven Workspace", "Raven", "FlowConnect", force=True)
+	if frappe.db.exists("DocType", "Raven Settings"):
+		oauth_client = frappe.db.get_single_value("Raven Settings", "oauth_client")
+		if oauth_client and frappe.db.exists("OAuth Client", oauth_client):
+			frappe.db.set_value(
+				"OAuth Client", oauth_client, "app_name", "FlowConnect Mobile", update_modified=False
+			)
+	frappe.clear_cache()

@@ -4,6 +4,7 @@ import { lastChannelAtom, lastWorkspaceAtom } from '@/utils/lastVisitedAtoms';
 import { Button, Code, Flex, Heading, Link, Text } from '@radix-ui/themes'
 import { useAtomValue } from 'jotai';
 import { useNavigate, useRouteError } from 'react-router-dom'
+import { getFlowSupportEmail } from '@/utils/flowBrand'
 
 const ErrorPage = () => {
 
@@ -23,6 +24,7 @@ const ErrorPage = () => {
 
     const lastWorkspace = useAtomValue(lastWorkspaceAtom)
     const lastChannel = useAtomValue(lastChannelAtom)
+    const supportEmail = getFlowSupportEmail()
 
     const goToChannels = () => {
 
@@ -47,7 +49,7 @@ const ErrorPage = () => {
                     "A new update is available." :
                     "There was an unexpected error."}
                 </Heading>
-                <Text>If you face this error again, please report it either on <Link target='_blank' href='https://github.com/The-Commit-Company/raven/issues'>GitHub</Link> or <Link target='_blank' href='https://support.ravenchat.ai/'> our support portal</Link>.</Text>
+                <Text>If this error happens again, {supportEmail ? <Link href={`mailto:${supportEmail}`}>contact FLOW support</Link> : "contact FLOW support"}.</Text>
 
                 {!errorDueToUpdate && <details>
                     <summary><Text size='2'>Show error details</Text></summary>

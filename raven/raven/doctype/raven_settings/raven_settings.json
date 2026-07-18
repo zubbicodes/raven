@@ -56,14 +56,14 @@
    "default": "1",
    "fieldname": "auto_add_system_users",
    "fieldtype": "Check",
-   "label": "Automatically add system users to Raven",
+   "label": "Automatically add system users to FlowConnect",
    "permlevel": 1
   },
   {
    "default": "1",
    "fieldname": "show_raven_on_desk",
    "fieldtype": "Check",
-   "label": "Show Raven on Desk",
+   "label": "Show FlowConnect on Desk",
    "permlevel": 1
   },
   {
@@ -89,7 +89,7 @@
   },
   {
    "default": "0",
-   "description": "If checked, a channel will be created in Raven for each department and employees will be synced with Raven Users.",
+   "description": "If checked, a FlowConnect channel will be created for each department and employees will be synced with FlowConnect users.",
    "fieldname": "auto_create_department_channel",
    "fieldtype": "Check",
    "label": "Automatically Create a Channel for each Department"
@@ -186,7 +186,7 @@
   {
    "fieldname": "raven_mobile_tab",
    "fieldtype": "Tab Break",
-   "label": "Raven Mobile"
+   "label": "FlowConnect Mobile"
   },
   {
    "fieldname": "oauth_client",

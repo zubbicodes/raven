@@ -80,7 +80,7 @@
    "fieldname": "raven_user",
    "fieldtype": "Link",
    "in_standard_filter": 1,
-   "label": "Raven User",
+   "label": "FlowConnect User",
    "options": "Raven User",
    "read_only": 1,
    "set_only_once": 1
@@ -234,7 +234,7 @@
   },
   {
    "default": "0",
-   "description": "When images or PDFs are uploaded to the agent, Raven will automatically call Google Cloud APIs to parse the document and send it's results to the agent.",
+   "description": "When images or PDFs are uploaded to the agent, FlowConnect will automatically call Google Cloud APIs to parse the document and send its results to the agent.",
    "fieldname": "use_google_document_parser",
    "fieldtype": "Check",
    "label": "Use Google Document/Vision AI to parse documents"

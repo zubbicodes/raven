@@ -153,11 +153,11 @@ def create_direct_message_channel(user_id: str):
 
 	# Validate both users are Raven Users
 	if not get_raven_user(frappe.session.user):
-		frappe.throw(_("You need to be a Raven User to send DMs."))
+		frappe.throw(_("You need to be a FlowConnect user to send DMs."))
 
 	if user_id != frappe.session.user:
 		if not get_raven_user(user_id):
-			frappe.throw(_("The user you are trying to message is not a Raven User."))
+			frappe.throw(_("The user you are trying to message is not a FlowConnect user."))
 
 	# Get the canonical order of the users
 	if frappe.session.user > user_id:

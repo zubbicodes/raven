@@ -242,7 +242,7 @@ def create_document_processor(processor_type_key: str):
 
 	raven_settings = frappe.get_single("Raven Settings")
 	if not raven_settings.enable_google_apis:
-		frappe.throw(_("Google APIs are not enabled. Please enable them in the Raven Settings."))
+		frappe.throw(_("Google APIs are not enabled. Please enable them in FlowConnect Settings."))
 
 	# Get the processor type configuration
 	config = PROCESSOR_TYPES_CONFIG[processor_type_key]
@@ -292,7 +292,7 @@ def delete_document_processor(processor_id: str):
 
 	raven_settings = frappe.get_single("Raven Settings")
 	if not raven_settings.enable_google_apis:
-		frappe.throw(_("Google APIs are not enabled. Please enable them in the Raven Settings."))
+		frappe.throw(_("Google APIs are not enabled. Please enable them in FlowConnect Settings."))
 
 	location = raven_settings.google_processor_location
 	key = json.loads(raven_settings.get_password("google_service_account_json_key"))

@@ -176,7 +176,7 @@ export const useFetchUnreadMessageCount = () => {
 
     useEffect(() => {
         // @ts-expect-error
-        let app_name = window.app_name || "Raven"
+        let app_name = window.app_name || "FlowConnect"
 
         if (channelID) {
             const channel = channels.find(c => c.name === channelID)

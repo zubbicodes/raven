@@ -63,7 +63,7 @@ const AddSite = ({ useBottomSheet = false }: Props) => {
                     bottomSheetRef.current?.present()
                 } else {
                     // TODO: Show error message/toast
-                    Alert.alert('Error', 'Failed to fetch site information / OAuth client not set for Raven Mobile')
+                    Alert.alert('Error', 'Failed to fetch site information / OAuth client not set for FlowConnect Mobile')
                 }
             })
             .catch(err => {

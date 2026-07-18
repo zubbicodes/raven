@@ -195,7 +195,7 @@ class RavenWebhook(Document):
 				elif doctype == "Raven Message Reaction":
 					frappe.throw(_("Message Reaction cannot be triggered on Channel"))
 				elif doctype == "Raven User":
-					frappe.throw(_("Raven User cannot be triggered on Channel"))
+					frappe.throw(_("FlowConnect user cannot be triggered on Channel"))
 
 			elif self.conditions_on == "User":
 				if doctype == "Raven Channel":

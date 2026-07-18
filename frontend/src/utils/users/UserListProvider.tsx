@@ -55,7 +55,7 @@ export const UserListProvider = ({ children }: PropsWithChildren) => {
     if (isLoading) {
         return <Flex justify='center' align='center' height='100vh' width='100vw' className='animate-fadein'>
             <Stack className='text-center' gap='1'>
-                <Text size='7' className='cal-sans tracking-normal'>raven</Text>
+                <Text size='7' className='cal-sans tracking-normal'>FlowConnect</Text>
                 <Text color='gray' weight='medium'>Setting up your workspace...</Text>
             </Stack>
         </Flex>
@@ -64,7 +64,7 @@ export const UserListProvider = ({ children }: PropsWithChildren) => {
         return <Flex align='center' justify='center' px='4' mx='auto' className="w-[50vw] h-screen">
             <ErrorBanner error={usersError}>
                 <Box py='2'>
-                    <Link href={'/app/raven-user'}>View Raven Users</Link>
+                    <Link href={'/app/raven-user'}>View FlowConnect Users</Link>
                 </Box>
             </ErrorBanner>
         </Flex>

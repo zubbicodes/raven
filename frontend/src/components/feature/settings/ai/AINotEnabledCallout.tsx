@@ -18,7 +18,7 @@ const AINotEnabledCallout = () => {
     }
 
     const message = !isAIEnabled 
-        ? "Raven AI is not enabled. Please enable it in" 
+        ? "FlowConnect AI is not enabled. Please enable it in"
         : "No AI providers are configured. Please configure at least one provider in"
 
     return (

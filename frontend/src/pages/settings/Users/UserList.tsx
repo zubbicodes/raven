@@ -18,7 +18,7 @@ const UserList = () => {
             <SettingsContentContainer>
                 <SettingsPageHeader
                     title='Users'
-                    description='Manage users added to Raven.'
+                    description='Manage users added to FlowConnect.'
                     actions={canAddRavenUsers ? <AddUserDialog /> : null}
                 />
                 <UserTable />

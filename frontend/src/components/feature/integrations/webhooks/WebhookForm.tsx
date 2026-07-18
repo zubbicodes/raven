@@ -159,7 +159,7 @@ const GeneralWebhookForm = ({ isEdit = false }: { isEdit?: boolean }) => {
                 </Flex>
             </Text>
             <HelperText size='2'>
-                To optionally add security to your webhook requests and ensure that the webhook is being sent from Raven, you can set up a "Webhook Secret" along with the request. Do not share the secret publicly.
+                To optionally add security to your webhook requests and ensure that the webhook is being sent from FlowConnect, you can set up a "Webhook Secret" along with the request. Do not share the secret publicly.
                 <br /><br />
                 If enabled, an additional header (X-Frappe-Webhook-Signature) will be added to the request before it's sent out, with its value being generated from the secret as a base64-encoded HMAC-SHA256 hash of the payload.
             </HelperText>

@@ -69,7 +69,7 @@
   {
    "fieldname": "html_xuuw",
    "fieldtype": "HTML",
-   "options": "<p>To disable the user from accessing Raven, go to \"Users\" and remove the \"Raven User\" role.</p>"
+   "options": "<p>To disable this user's FlowConnect access, open Users and remove their FlowConnect access role.</p>"
   },
   {
    "fieldname": "type",

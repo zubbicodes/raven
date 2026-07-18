@@ -55,7 +55,7 @@ class RavenAgentManager:
 		if self.bot_doc.model_provider == "Local LLM" and self.settings.enable_local_llm:
 			# Client for local LLM
 			if not self.settings.local_llm_api_url:
-				frappe.throw(_("Local LLM API URL is not configured in Raven Settings"))
+				frappe.throw(_("Local LLM API URL is not configured in FlowConnect Settings"))
 
 			# Handle OpenAI Compatible provider differently
 			if self.settings.local_llm_provider == "OpenAI Compatible":
@@ -76,7 +76,7 @@ class RavenAgentManager:
 			# Standard OpenAI client
 			api_key = self.settings.get_password("openai_api_key")
 			if not api_key:
-				frappe.throw(_("OpenAI API key is not configured in Raven Settings"))
+				frappe.throw(_("OpenAI API key is not configured in FlowConnect Settings"))
 
 			client = AsyncOpenAI(
 				api_key=api_key,

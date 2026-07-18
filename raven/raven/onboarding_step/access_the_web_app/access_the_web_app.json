@@ -1,10 +1,10 @@
 {
  "action": "Go to Page",
- "action_label": "Go to Raven",
- "callback_message": "To open Raven, click <a href=\"/raven\">here</a>.",
- "callback_title": "Access Raven",
+ "action_label": "Go to FlowConnect",
+ "callback_message": "To open FlowConnect, click <a href=\"/raven\">here</a>.",
+ "callback_title": "Access FlowConnect",
  "creation": "2025-01-06 19:30:54.625335",
- "description": "### Access the web and mobile apps\n\n\nRaven is available at <a href=\"/raven\">**/raven**</a> for both web and mobile. On mobile, Raven can be installed as a PWA.",
+ "description": "### Access the web and mobile apps\n\n\nFlowConnect is available at <a href=\"/raven\">**/raven**</a> on web and mobile. On mobile, FlowConnect can be installed as a PWA.",
  "docstatus": 0,
  "doctype": "Onboarding Step",
  "idx": 0,
@@ -18,7 +18,7 @@
  "path": "/raven",
  "show_form_tour": 0,
  "show_full_form": 0,
- "title": "It's time. Send a Raven.",
+ "title": "It's time. Send a message.",
  "validate_action": 1,
  "video_url": ""
 }

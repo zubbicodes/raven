@@ -47,7 +47,7 @@ const SavedPromptForm = () => {
                     </HStack>
                 </Text>
                 <HelperText>
-                    If checked, this prompt will be available to all users on Raven
+                    If checked, this prompt will be available to all users on FlowConnect
                 </HelperText>
             </Stack>
             <Stack maxWidth={'480px'}>

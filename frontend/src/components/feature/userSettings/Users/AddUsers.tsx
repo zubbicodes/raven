@@ -67,7 +67,7 @@ const AddUsers = () => {
                 users: JSON.stringify(selected)
             }).then((res) => {
                 if (res.message.success_users.length !== 0) {
-                    toast.success(`You have added ${res.message.success_users.length} users to Raven`)
+                    toast.success(`You have added ${res.message.success_users.length} users to FlowConnect`)
                 }
 
                 mutate('raven.api.raven_users.get_list')
@@ -90,8 +90,8 @@ const AddUsers = () => {
 
             <SettingsContentContainer>
                 <SettingsPageHeader
-                    title="Add users to Raven"
-                    description={<>Only System managers have the ability to add users; users you add will be given the <Strong>"Raven User"</Strong> role.</>}
+                    title="Add users to FlowConnect"
+                    description={<>Only System Managers can add users and grant FlowConnect access.</>}
                     actions={<Button type='button' disabled={loading || !canAddRavenUsers} onClick={handleAddUsers}>
                         {loading && <Loader />}
                         {loading ? "Adding" : "Add"}
@@ -129,7 +129,7 @@ const AddUsers = () => {
                 <ErrorBanner error={error} />
                 <ErrorBanner error={postError} />
                 {failedUsers.length > 0 && <ErrorCallout>
-                    Could not add the following users to Raven since they have a <Strong>Role Profile</Strong> attached.<br />
+                    Could not add the following users to FlowConnect since they have a <Strong>Role Profile</Strong> attached.<br />
                     Please remove the role profile and try again.<br /><br />
 
                     <ol className="pl-4">

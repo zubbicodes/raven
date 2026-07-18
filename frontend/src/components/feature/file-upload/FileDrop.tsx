@@ -105,7 +105,7 @@ export const FileDrop = forwardRef((props: FileDropProps, ref) => {
                     }}
                     display={onDragEnter ? "flex" : "none"}
                 >
-                    <Text as='span' size='2' color='gray'>Drop your files here. A Raven will pick it up.</Text>
+                    <Text as='span' size='2' color='gray'>Drop your files here. FlowConnect will take care of the rest.</Text>
                     <input type='file' style={{ display: 'none' }} {...getInputProps()} />
                 </Flex>
             }

@@ -16,8 +16,8 @@ const GoogleAPINotEnabledCallout = () => {
     }
 
     const message = !hasGoogleApis
-        ? "Google APIs are not enabled. Please enable them in Raven Settings"
-        : "No Google Project ID is set. Please set a Project ID in Raven Settings"
+        ? "Google APIs are not enabled. Please enable them in FlowConnect Settings"
+        : "No Google Project ID is set. Please set a Project ID in FlowConnect Settings"
 
     return (
         <CustomCallout

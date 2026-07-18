@@ -73,7 +73,7 @@ const DocumentProcessors = () => {
                     />
                     <Callout.Root color="amber">
                         <Callout.Icon><BiErrorCircle /></Callout.Icon>
-                        <Callout.Text>You need Raven Admin permissions to manage document processors.</Callout.Text>
+                        <Callout.Text>You need FlowConnect Admin permissions to manage document processors.</Callout.Text>
                     </Callout.Root>
                 </SettingsContentContainer>
             </PageContainer>

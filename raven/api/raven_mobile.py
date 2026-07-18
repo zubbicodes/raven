@@ -10,7 +10,7 @@ def get_client_id():
 	app_name = frappe.get_website_settings("app_name") or frappe.get_system_settings("app_name")
 
 	if not app_name or app_name == "Frappe":
-		app_name = "Raven"
+		app_name = "FlowConnect"
 
 	all_app_versions = get_versions()
 
@@ -26,7 +26,7 @@ def get_client_id():
 		"raven_version": raven_version,
 		"frappe_version": frappe_version,
 		"logo": frappe.db.get_single_value("Navbar Settings", "app_logo")
-		or "/assets/raven/raven-logo.png",
+		or "/assets/raven/flowconnect-logo.svg",
 	}
 
 
@@ -46,7 +46,7 @@ def create_oauth_client():
 	else:
 		oauth_client = frappe.get_doc("OAuth Client", existing_oauth_client)
 
-	oauth_client.app_name = "Raven Mobile"
+	oauth_client.app_name = "FlowConnect Mobile"
 	oauth_client.scopes = "all openid"
 	oauth_client.redirect_uris = "raven.thecommit.company:"
 	oauth_client.default_redirect_uri = "raven.thecommit.company:"

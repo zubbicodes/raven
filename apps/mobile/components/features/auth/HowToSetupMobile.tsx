@@ -25,7 +25,7 @@ const HowToSetupMobile = () => {
         <View>
             <TouchableOpacity className='flex-row items-center gap-1' onPress={onPress}>
                 <InfoIcon height={16} width={16} fill={colors.icon} />
-                <Text className='text-sm text-muted-foreground'>How do I setup my site for Raven mobile?</Text>
+                <Text className='text-sm text-muted-foreground'>How do I set up my site for FlowConnect mobile?</Text>
             </TouchableOpacity>
 
             <Sheet enableDynamicSizing ref={infoSheetRef}>
@@ -50,10 +50,10 @@ const HowToSetupMobileContent = ({ onDismiss }: { onDismiss: () => void }) => {
     }
 
     return <View className='p-4 flex gap-4'>
-        <Text className='text-lg text-foreground font-semibold'>Set up Raven mobile on your site</Text>
+        <Text className='text-lg text-foreground font-semibold'>Set up FlowConnect mobile on your site</Text>
         <View className='flex gap-2'>
             <Text className='text-base text-foreground'>
-                <StepNumber number={1} /> Open Raven on your desktop browser
+                <StepNumber number={1} /> Open FlowConnect on your desktop browser
             </Text>
             <Text className='text-base text-foreground'>
                 <StepNumber number={2} /> Go to <BoldText>Settings {">"} Mobile App</BoldText>

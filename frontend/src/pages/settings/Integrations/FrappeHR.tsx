@@ -81,7 +81,7 @@ const FrappeHR = () => {
                     <SettingsContentContainer>
                         <SettingsPageHeader
                             title={__('HR')}
-                            description={__("Connect your HR system to Raven to sync employee data and send notifications.")}
+                            description={__("Connect FlowHR to FlowConnect to sync employee data and send notifications.")}
                             actions={<Button type='submit' disabled={updatingDoc || !isRavenAdmin}>
                                 {updatingDoc && <Loader className="text-white" />}
                                 {updatingDoc ? __("Saving") : __("Save")}
@@ -171,7 +171,7 @@ const FrappeHR = () => {
                                 </Flex>
                             </Text>
                             <HelperText>
-                                {__("If checked, users on Raven are notified if another user is on leave.")}
+                                {__("If checked, FlowConnect users are notified if another user is on leave.")}
                             </HelperText>
                         </Flex>
                     </SettingsContentContainer>

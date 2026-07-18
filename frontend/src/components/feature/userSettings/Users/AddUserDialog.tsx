@@ -20,7 +20,7 @@ const AddUserDialog = () => {
             </Dialog.Trigger>
             <Dialog.Content width={'480px'} className={DIALOG_CONTENT_CLASS}>
                 <Dialog.Title mb={'1'}>Add User</Dialog.Title>
-                <Dialog.Description size={'2'}>Invite a new user to Raven.</Dialog.Description>
+                <Dialog.Description size={'2'}>Invite a new user to FlowConnect.</Dialog.Description>
                 <UserForm onClose={() => setOpen(false)} />
             </Dialog.Content>
         </Dialog.Root>
@@ -111,7 +111,7 @@ const UserForm = ({ onClose }: { onClose: VoidFunction }) => {
                     </TextField.Root>
                 </Box>
                 {errors.email && <ErrorText>{errors.email?.message}</ErrorText>}
-                {ravenUserExists && <ErrorText>This user is already on Raven.</ErrorText>}
+                {ravenUserExists && <ErrorText>This user is already on FlowConnect.</ErrorText>}
             </Stack>
             {!userExists && <>
                 <Stack>
@@ -151,7 +151,7 @@ const UserForm = ({ onClose }: { onClose: VoidFunction }) => {
                 </Stack>
             </>}
             <Text size={'2'} color='gray'>
-                {userExists ? 'This user already exists in Frappe. Add them to Raven?' : 'An invite will be sent on their email.'}
+                {userExists ? 'This user already exists in FLOW. Add them to FlowConnect?' : 'An invite will be sent on their email.'}
             </Text>
             <HStack justify={'end'} pt='4'>
                 <Dialog.Close>

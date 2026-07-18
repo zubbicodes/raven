@@ -49,9 +49,9 @@ export default function Profile() {
                         </View>
                         <LogOutButton />
                         <View className='flex flex-col justify-center items-center pt-2 gap-1'>
-                            <Text className='text-lg text-muted-foreground/90 font-cal-sans'>raven</Text>
+                            <Text className='text-lg text-muted-foreground/90 font-cal-sans'>FlowConnect</Text>
                             <View className='flex flex-col items-center justify-center'>
-                                <Text className='text-xs text-muted-foreground/80'>by The Commit Company</Text>
+                                <Text className='text-xs text-muted-foreground/80'>by FLOW</Text>
                                 <Text className='text-xs text-muted-foreground/80'>Version {nativeApplicationVersion} ({nativeBuildVersion})</Text>
                             </View>
                         </View>

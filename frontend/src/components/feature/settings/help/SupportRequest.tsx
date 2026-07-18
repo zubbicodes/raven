@@ -11,27 +11,29 @@ import { Loader } from "@/components/common/Loader"
 import { HStack, Stack } from "@/components/layout/Stack"
 import { DIALOG_CONTENT_CLASS } from "@/utils/layout/dialog"
 import { useUserData } from "@/hooks/useUserData";
+import { getFlowSupportEmail } from "@/utils/flowBrand";
 
 type TicketType = "Feedback" | "Question" | "Bug"
+const supportEmail = getFlowSupportEmail()
 
 const subTitles: Record<TicketType, { heading: string, subHeading: string, defaultTextAreaValue: string, footerHeading: ReactNode }> = {
     "Feedback": {
         heading: "Send feedback",
-        subHeading: "How can we improve Raven? If you have a feature request, can you also share how you would use it and why it's important to you?",
+        subHeading: "How can we improve FlowConnect? If you have a feature request, tell us how you would use it and why it matters.",
         defaultTextAreaValue: "What if...",
-        footerHeading: <span>You can also email us at <Link href="mailto:support@thecommit.company" underline="none" size='1' target="_blank">support@thecommit.company</Link>. We can't respond to every request but we read all of them.</span>
+        footerHeading: <span>You can also email us at <Link href={`mailto:${supportEmail}`} underline="none" size='1' target="_blank">{supportEmail || "FLOW Support"}</Link>.</span>
     },
     "Question": {
         heading: "Ask a question",
         subHeading: "How can we help? Please share any relevant information we may need to answer your question.",
         defaultTextAreaValue: "How do I...",
-        footerHeading: <span>You can also email us at <Link href="mailto:support@thecommit.company" underline="none" size='1' target="_blank">support@thecommit.company</Link></span>
+        footerHeading: <span>You can also email us at <Link href={`mailto:${supportEmail}`} underline="none" size='1' target="_blank">{supportEmail || "FLOW Support"}</Link></span>
     },
     "Bug": {
         heading: "Contact us",
         subHeading: "What is the issue? If you're reporting a bug, what are the steps you took so we can reproduce the behaviour?",
         defaultTextAreaValue: "Something seems wrong...",
-        footerHeading: <span>You can also email us at <Link href="mailto:support@thecommit.company" underline="none" size='1' target="_blank">support@thecommit.company</Link></span>
+        footerHeading: <span>You can also email us at <Link href={`mailto:${supportEmail}`} underline="none" size='1' target="_blank">{supportEmail || "FLOW Support"}</Link></span>
     },
 };
 
@@ -85,7 +87,7 @@ const SupportRequestForm = ({ onClose }: SupportRequestFormProps) => {
     const onSubmit = (data: SupportRequestFormFields) => {
 
         // @ts-expect-error
-        const context = `Raven: v${frappe?.boot.versions.raven}, Frappe: v${frappe?.boot.versions.frappe}, ERPNext: v${frappe?.boot.versions.erpnext ?? "N/A"}`
+        const context = `FlowConnect: v${frappe?.boot.versions.raven}, FLOW Core: v${frappe?.boot.versions.frappe}, FlowERP: v${frappe?.boot.versions.erpnext ?? "N/A"}`
         call({
             email: data.email,
             ticket_type: data.ticket_type,

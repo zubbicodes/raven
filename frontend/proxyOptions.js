@@ -4,7 +4,7 @@ import fs from 'fs';
 function getCommonSiteConfig() {
   let currentDir = path.resolve('.')
   // traverse up till we find frappe-bench with sites directory
-  while (currentDir !== '/') {
+  while (true) {
     if (
       fs.existsSync(path.join(currentDir, 'sites')) &&
       fs.existsSync(path.join(currentDir, 'apps'))
@@ -15,7 +15,9 @@ function getCommonSiteConfig() {
       }
       return null
     }
-    currentDir = path.resolve(currentDir, '..')
+    const parentDir = path.resolve(currentDir, '..')
+    if (parentDir === currentDir) break
+    currentDir = parentDir
   }
   return null
 }

@@ -83,7 +83,7 @@ const DMListEmptyState = ({ searchQuery }: { searchQuery?: string }) => {
                 </Text>
             </View>
             <Text className="text-sm text-foreground/60">
-                {searchQuery ? 'Try searching for a different user name, or invite this userto Raven' : `Start a new conversation with someone to see it here`}
+                {searchQuery ? 'Try searching for a different user name, or invite this user to FlowConnect' : `Start a new conversation with someone to see it here`}
             </Text>
         </View>
     )

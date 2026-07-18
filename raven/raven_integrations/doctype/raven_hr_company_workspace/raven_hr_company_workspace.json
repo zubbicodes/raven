@@ -22,7 +22,7 @@
    "fieldname": "raven_workspace",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Raven Workspace",
+   "label": "FlowConnect Workspace",
    "options": "Raven Workspace",
    "reqd": 1
   }
