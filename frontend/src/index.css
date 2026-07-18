@@ -27,7 +27,9 @@ ul {
 
 .radix-themes {
     --heading-font-family: 'Cal Sans', var(--default-font-family);
-    ;
+    --accent-9: #109870;
+    --accent-10: #0d7d5d;
+    --accent-contrast: #ffffff;
 }
 
 .rt-Button {

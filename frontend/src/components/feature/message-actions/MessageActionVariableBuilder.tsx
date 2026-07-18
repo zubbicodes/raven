@@ -68,7 +68,7 @@ const MessageActionVariableBuilder = (props: Props) => {
                                     <Tooltip content={field.options.split('\n').join(', ')}>
                                         <Badge color='blue' className='rounded-md'>{field.options.split('\n').length} Options</Badge>
                                     </Tooltip>
-                                    : <Badge color='iris' variant='soft' className='rounded-md'>{field.options}</Badge> : null}
+                                    : <Badge color='jade' variant='soft' className='rounded-md'>{field.options}</Badge> : null}
                             </Table.Cell>
                             <Table.Cell>{field.default_value}</Table.Cell>
                             <Table.Cell>

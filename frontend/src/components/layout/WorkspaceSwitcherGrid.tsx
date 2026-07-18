@@ -95,7 +95,7 @@ const getLogo = (workspace: WorkspaceFields) => {
     let logo = workspace.logo || ''
 
     if (!logo && ['Raven', 'FlowConnect'].includes(workspace.workspace_name)) {
-        logo = '/assets/raven/flowconnect-logo.svg'
+        logo = '/assets/raven/flow-logo.png'
     }
 
     return logo

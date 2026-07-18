@@ -22,16 +22,20 @@ export default defineConfig(({ command, mode }) => {
 				short_name: "FlowConnect",
 				description: "Secure team messaging by FLOW.",
 				display: "standalone",
+				background_color: "#ffffff",
+				theme_color: "#109870",
 				"icons": [
 					{
 						"src": "/assets/raven/manifest/android-chrome-192x192.png",
 						"sizes": "192x192",
-						"type": "image/png"
+						"type": "image/png",
+						"purpose": "any maskable"
 					},
 					{
 						"src": "/assets/raven/manifest/android-chrome-512x512.png",
 						"sizes": "512x512",
-						"type": "image/png"
+						"type": "image/png",
+						"purpose": "any maskable"
 					},
 					{
 						"src": "/assets/raven/manifest/apple-touch-icon.png",

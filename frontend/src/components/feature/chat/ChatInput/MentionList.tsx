@@ -60,7 +60,7 @@ export default forwardRef((props: ReactRendererOptions['props'], ref) => {
     }))
 
     return (
-        <Theme accentColor='iris' panelBackground='translucent'>
+        <Theme accentColor='jade' panelBackground='translucent'>
             <Flex
                 direction='column'
                 gap='0'

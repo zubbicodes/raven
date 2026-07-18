@@ -36,7 +36,7 @@
     replaceText(document.body)
     document.querySelectorAll("img").forEach((image) => {
       if (/raven-logo/i.test(`${image.src} ${image.alt}`)) {
-        image.src = "/assets/raven/flowconnect-logo.svg"
+        image.src = "/assets/raven/flow-logo.png"
         image.alt = "FlowConnect"
       }
     })

@@ -43,7 +43,7 @@ const DrawerContent = React.forwardRef<
     <DrawerPortal>
         <DrawerOverlay />
         <Theme
-            accentColor='iris'
+            accentColor='jade'
             // appearance="dark"
             panelBackground='translucent'
         >

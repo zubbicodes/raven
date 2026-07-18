@@ -201,7 +201,7 @@ function App() {
         <ThemeProvider
           appearance={appearance}
           // grayColor='slate'
-          accentColor='iris'
+          accentColor='jade'
           panelBackground='translucent'
           setAppearance={setAppearance}>
           <RouterProvider router={router} />

@@ -85,7 +85,7 @@ export const FileUploadBox = forwardRef((props: FileUploadBoxProps, ref) => {
             <Flex
                 align="center"
                 justify="center"
-                className={`border-2 border-dashed rounded-md ${onDragEnter ? "border-iris-10" : "border-gray-6 dark:border-gray-700"} dark:bg-[#171923AA] bg-[#F7FAFCAA]`}
+                className={`border-2 border-dashed rounded-md ${onDragEnter ? "border-accent-10" : "border-gray-6 dark:border-gray-700"} dark:bg-[#171923AA] bg-[#F7FAFCAA]`}
                 style={{
                     width: "100%",
                     height: "150px",
