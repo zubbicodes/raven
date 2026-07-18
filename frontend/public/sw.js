@@ -27,6 +27,8 @@ try {
         const notificationTitle = data.title || notification.title
         let notificationOptions = {
             body: data.body || notification.body || "",
+            data: { url: data.click_action || self.location.origin },
+            tag: data.tag || data.channel_id || undefined,
         }
 
         if (data.image) {
@@ -36,7 +38,7 @@ try {
         if (data.creation) {
             notificationOptions["timestamp"] = data.creation
         }
-        let url = `${data.base_url}/raven/channel/${data.channel_id}`
+        let url = data.click_action || `${data.base_url}/raven/channel/${data.channel_id}`
 
         if (data.message_url) {
             url = data.message_url
@@ -57,15 +59,12 @@ try {
         self.registration.showNotification(notificationTitle, notificationOptions)
     })
 
-    if (isChrome()) {
-        self.addEventListener("notificationclick", (event) => {
-            event.stopImmediatePropagation()
-            event.notification.close()
-            if (event.notification.data && event.notification.data.url) {
-                clients.openWindow(event.notification.data.url)
-            }
-        })
-    }
+    self.addEventListener("notificationclick", (event) => {
+        event.stopImmediatePropagation()
+        event.notification.close()
+        const target = event.notification.data?.url || event.action || self.location.origin
+        event.waitUntil(clients.openWindow(target))
+    })
 } catch (error) {
     console.log("Failed to initialize Firebase", error)
 }

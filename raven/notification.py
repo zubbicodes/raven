@@ -1,10 +1,11 @@
 import json
 from urllib.parse import urlparse
 
+from pytz import timezone, utc
+
 import frappe
 from frappe.frappeclient import FrappeClient
 from frappe.utils import get_datetime, get_system_timezone
-from pytz import timezone, utc
 
 from raven.raven_cloud_notifications import get_site_name
 from raven.utils import get_channel_members, make_api_call
@@ -29,6 +30,11 @@ def send_notification_for_message(message):
 		return
 
 	raven_settings = frappe.get_cached_doc("Raven Settings")
+	from hrms.api.push import is_enabled
+
+	if is_enabled(require_sender=True):
+		send_push_notification_via_raven_cloud(message, raven_settings, use_flow_sender=True)
+		return
 
 	if raven_settings.push_notification_service == "Raven":
 		send_push_notification_via_raven_cloud(message, raven_settings)
@@ -43,7 +49,7 @@ def send_notification_for_message(message):
 		message.send_notification_for_channel_message()
 
 
-def send_push_notification_via_raven_cloud(message, raven_settings):
+def send_push_notification_via_raven_cloud(message, raven_settings, use_flow_sender=False):
 	"""
 	Send a push notification via the Raven Cloud API
 	"""
@@ -199,10 +205,30 @@ def send_push_notification_via_raven_cloud(message, raven_settings):
 				}
 			)
 
-		make_post_call_for_notification(messages, raven_settings)
+		if use_flow_sender:
+			send_push_notifications_via_flow(messages)
+		else:
+			make_post_call_for_notification(messages, raven_settings)
 
-	except Exception as e:
-		frappe.log_error(title="Raven Cloud Push Notification Error")
+	except Exception:
+		frappe.log_error(title="FlowConnect Push Notification Error")
+
+
+def send_push_notifications_via_flow(messages):
+	from hrms.api.push import enqueue_notification_to_users
+
+	for notification in messages:
+		data = notification.get("data") or {}
+		notification_content = notification.get("notification") or {}
+		enqueue_notification_to_users(
+			users=notification.get("users") or [],
+			title=notification_content.get("title") or "FlowConnect",
+			body=notification_content.get("body") or "",
+			link=notification.get("click_action") or data.get("message_url") or frappe.utils.get_url("/raven"),
+			product="FlowConnect",
+			data={**data, "tag": notification.get("tag") or data.get("channel_id") or ""},
+			icon=notification.get("image"),
+		)
 
 
 def make_post_call_for_notification(messages, raven_settings):

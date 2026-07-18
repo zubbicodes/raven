@@ -8,6 +8,11 @@ from frappe.frappeclient import FrappeClient
 @frappe.whitelist()
 def are_push_notifications_enabled() -> bool:
 	try:
+		from hrms.api.push import is_enabled
+
+		if is_enabled():
+			return True
+
 		push_service = frappe.db.get_single_value("Raven Settings", "push_notification_service")
 
 		if not push_service:
@@ -51,7 +56,7 @@ def register_site_on_raven_cloud() -> None:
 		raven_settings.vapid_public_key = message.get("vapid_public_key")
 		raven_settings.save()
 	else:
-		frappe.throw(_("Push notification service is not set to Raven Cloud."))
+		frappe.throw(_("Push notification service is not set to Managed Push Service."))
 
 
 @frappe.whitelist()
