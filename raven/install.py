@@ -80,6 +80,14 @@ def apply_flowconnect_branding():
 		and not frappe.db.exists("Raven Workspace", "FlowConnect")
 	):
 		frappe.rename_doc("Raven Workspace", "Raven", "FlowConnect", force=True)
+	if frappe.db.exists("Raven Workspace", "FlowConnect"):
+		frappe.db.set_value(
+			"Raven Workspace",
+			"FlowConnect",
+			"logo",
+			"/assets/raven/flow-connect-logo.png",
+			update_modified=False,
+		)
 	if frappe.db.exists("DocType", "Raven Settings"):
 		oauth_client = frappe.db.get_single_value("Raven Settings", "oauth_client")
 		if oauth_client and frappe.db.exists("OAuth Client", oauth_client):

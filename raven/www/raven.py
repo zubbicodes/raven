@@ -52,17 +52,12 @@ def get_context(context):
 	else:
 		context["app_name"] = "FlowConnect"
 
-	use_website_favicon = frappe.db.get_single_value("Raven Settings", "use_website_favicon")
-
-	favicon = None
-	if use_website_favicon:
-		favicon = frappe.get_website_settings("favicon")
-
-	context["icon_96"] = favicon or "/assets/raven/flow-logo.png"
-	context["apple_touch_icon"] = favicon or "/assets/raven/flow-logo.png"
-	context["mask_icon"] = favicon or "/assets/raven/flow-logo.png"
-	context["favicon_svg"] = favicon or "/assets/raven/flow-logo.png"
-	context["favicon_ico"] = favicon or "/assets/raven/flow-logo.png"
+	product_logo = "/assets/raven/flow-connect-logo.png"
+	context["icon_96"] = product_logo
+	context["apple_touch_icon"] = product_logo
+	context["mask_icon"] = product_logo
+	context["favicon_svg"] = product_logo
+	context["favicon_ico"] = product_logo
 	context["sitename"] = boot.get("sitename")
 
 	if frappe.session.user != "Guest":

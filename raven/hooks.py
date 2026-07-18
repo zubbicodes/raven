@@ -9,8 +9,8 @@ app_description = "Team messaging and collaboration"
 app_email = os.environ.get("FLOW_SUPPORT_EMAIL", "support@flow.local")
 app_license = "AGPLv3"
 source_link = os.environ.get("RAVEN_GIT_URL", "https://github.com/syntaxusman/raven.git").removesuffix(".git")
-app_logo = "/assets/raven/flow-logo.png"
-app_logo_url = "/assets/raven/flow-logo.png"
+app_logo = "/assets/raven/flow-connect-logo.png"
+app_logo_url = "/assets/raven/flow-connect-logo.png"
 
 # Includes in <head>
 # ------------------
@@ -24,7 +24,7 @@ app_include_js = "raven.bundle.js"
 add_to_apps_screen = [
 	{
 		"name": "raven",
-		"logo": "/assets/raven/flow-logo.png",
+		"logo": "/assets/raven/flow-connect-logo.png",
 		"title": "FlowConnect",
 		"route": "/raven",
 		"has_permission": "raven.permissions.check_app_permission",
