@@ -7,6 +7,7 @@ def after_install():
 	try:
 		print("Setting up FlowConnect...")
 		add_all_roles_to("Administrator")
+		create_standard_employee_role_profile()
 		create_raven_user_for_administrator()
 		create_general_channel()
 
@@ -19,6 +20,28 @@ def after_install():
 			fg="bright_red",
 		)
 		raise e
+
+
+def create_standard_employee_role_profile():
+	"""Create the reusable employee access profile used across FLOW apps."""
+	profile_name = "Standard Employee"
+	required_roles = ("Projects User", "HR User", "Raven User")
+
+	if frappe.db.exists("Role Profile", profile_name):
+		role_profile = frappe.get_doc("Role Profile", profile_name)
+	else:
+		role_profile = frappe.new_doc("Role Profile")
+		role_profile.role_profile = profile_name
+
+	existing_roles = {row.role for row in role_profile.get("roles")}
+	for role in required_roles:
+		if role not in existing_roles:
+			role_profile.append("roles", {"role": role})
+
+	if role_profile.is_new():
+		role_profile.insert(ignore_permissions=True)
+	else:
+		role_profile.save(ignore_permissions=True)
 
 
 def create_raven_user_for_administrator():
